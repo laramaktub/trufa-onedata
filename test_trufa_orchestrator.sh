@@ -21,8 +21,8 @@ OUTPUTDIR=
 
 mkdir -p "$OUTPUTDIR"
 
-OUT_FOLDER="/onedata/output/$OUTPUT_PATH"
-IN_FOLDER="/onedata/$INPUT_PATH"
+OUT_FOLDER="/onedata/output/TRUFA/output"
+IN_FOLDER="/onedata/input/$INPUT_PATH"
 STAT_FOLDER="/onedata/output/$OUTPUT_PATH"
 READS_FILES="$IN_FOLDER/reads_left.fq $IN_FOLDER/reads_right.fq"
 
