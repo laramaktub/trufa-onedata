@@ -7,22 +7,23 @@ ansible-galaxy install indigo-dc.oneclient && ansible-playbook /etc/ansible/role
 
 env
 echo 'ich bin hier'
-mkdir -p /home/OneData/input
-mkdir -p /home/OneData/output
+mkdir -p /onedata/input
+mkdir -p /onedata/output
 
-ONECLIENT_AUTHORIZATION_TOKEN="$INPUT_ONEDATA_TOKEN" PROVIDER_HOSTNAME="$INPUT_ONEDATA_PROVIDERS" oneclient --no_check_certificate --authentication token -o ro /home/OneData/input || exit 1
-ONECLIENT_AUTHORIZATION_TOKEN="$OUTPUT_ONEDATA_TOKEN" PROVIDER_HOSTNAME="$OUTPUT_ONEDATA_PROVIDERS" oneclient --no_check_certificate --authentication token -o rw /home/OneData/output || exit 1
+ONECLIENT_AUTHORIZATION_TOKEN="$INPUT_ONEDATA_TOKEN" PROVIDER_HOSTNAME="$INPUT_ONEDATA_PROVIDERS" oneclient --no_check_certificate --authentication token -o ro /onedata/input || exit 1
+ONECLIENT_AUTHORIZATION_TOKEN="$OUTPUT_ONEDATA_TOKEN" PROVIDER_HOSTNAME="$OUTPUT_ONEDATA_PROVIDERS" oneclient --no_check_certificate --authentication token -o rw /onedata/output || exit 1
 
-cd /home/OneData/input
+cd /onedata/input
 
-INPUTDIR="/onedata/input/$INPUT_ONEDATA_SPACE/$INPUT_PATH"
+
+INPUTDIR="/onedata/input/$INPUT_PATH"
 OUTPUTDIR=
 
 mkdir -p "$OUTPUTDIR"
 
-OUT_FOLDER="/onedata/output/$OUTPUT_ONEDATA_SPACE/$OUTPUT_PATH"
-IN_FOLDER="/onedata/input/$INPUT_ONEDATA_SPACE/$INPUT_PATH"
-STAT_FOLDER="/onedata/output/$OUTPUT_ONEDATA_SPACE/$OUTPUT_PATH"
+OUT_FOLDER="/onedata/output/$OUTPUT_PATH"
+IN_FOLDER="/onedata/$INPUT_PATH"
+STAT_FOLDER="/onedata/output/$OUTPUT_PATH"
 READS_FILES="$IN_FOLDER/reads_left.fq $IN_FOLDER/reads_right.fq"
 
 echo 'Hello'
