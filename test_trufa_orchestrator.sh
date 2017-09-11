@@ -5,7 +5,7 @@ apt-add-repository ppa:ansible/ansible
 apt-get update && apt-get install -y ansible && rm -rf /var/lib/apt/lists/* 
 ansible-galaxy install indigo-dc.oneclient && ansible-playbook /etc/ansible/roles/indigo-dc.oneclient/tests/test.yml
 
-env
+
 
 mkdir -p /onedata/TRUFA
 
